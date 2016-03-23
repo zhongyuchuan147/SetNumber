@@ -1,0 +1,84 @@
+<HTML><HEAD><TITLE>简单计算器</TITLE>
+<STYLE type=text/css>
+* {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+LI {
+	LIST-STYLE-TYPE: none; LIST-STYLE-IMAGE: none
+}
+A {
+	COLOR: #000
+}
+#content {
+	BORDER-BOTTOM: #000 1px solid; BORDER-LEFT: #000 1px solid; PADDING-BOTTOM: 10px; MARGIN: 15px auto; PADDING-LEFT: 10px; WIDTH: 400px; PADDING-RIGHT: 10px; HEIGHT: 600px; BORDER-TOP: #000 1px solid; BORDER-RIGHT: #000 1px solid; PADDING-TOP: 10px
+}
+#led {
+	BORDER-BOTTOM: #000 1px solid; TEXT-ALIGN: right; LINE-HEIGHT: 100px; HEIGHT: 100px; FONT-SIZE: 20px; widht: 400px
+}
+#bonten UL {
+	CLEAR: both
+}
+#bonten UL LI {
+	BORDER-BOTTOM: #000 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #000 1px solid; LINE-HEIGHT: 80px; MARGIN: 9px; WIDTH: 80px; BACKGROUND: #fff; FLOAT: left; HEIGHT: 80px; FONT-SIZE: 20px; BORDER-TOP: #000 1px solid; BORDER-RIGHT: #000 1px solid
+}
+#bonten UL LI:hover {
+	BORDER-BOTTOM: #000 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #000 1px solid; LINE-HEIGHT: 80px; MARGIN: 9px; WIDTH: 80px; BACKGROUND: #000; FLOAT: left; HEIGHT: 80px; COLOR: #fff; FONT-SIZE: 20px; BORDER-TOP: #000 1px solid; BORDER-RIGHT: #000 1px solid
+}
+</STYLE>
+
+<SCRIPT type=text/javascript>
+window.onload=function (){
+	var LED=document.getElementById('led');
+	var num=document.getElementById('num');
+	var oul=document.getElementsByTagName('ul');	
+	var oli=document.getElementsByTagName('li');
+	var qing=document.getElementById('qing');
+	var number;
+
+	for(i=0; i<oli.length;i++){
+		oli[i].onclick = function(){
+			LED.innerHTML=LED.innerHTML+this.innerHTML;	
+			number=eval(LED.innerHTML);
+		}
+	}
+	
+	num.onclick=function (){
+		LED.innerHTML='';
+		LED.innerHTML=number;
+	}
+	
+	qing.onclick=function (){
+		LED.innerHTML='';
+	}
+
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<DIV id=content>
+<DIV id=led></DIV>
+<DIV id=bonten>
+<UL>
+<LI>7</LI>
+<LI>8</LI>
+<LI>9</LI>
+<LI>/</LI></UL>
+<UL>
+<LI>4</LI>
+<LI>5</LI>
+<LI>6</LI>
+<LI>*</LI></UL>
+<UL>
+<LI>1</LI>
+<LI>2</LI>
+<LI>3</LI>
+<LI>-</LI></UL>
+<UL>
+<LI>0</LI>
+<LI>.</LI>
+<LI id=num>=</LI>
+<LI>+</LI></UL>
+<P>
+<UL>
+<LI id=qing>清空</LI></UL>
+<P></P></DIV></DIV></BODY></HTML>  

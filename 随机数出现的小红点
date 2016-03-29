@@ -1,0 +1,49 @@
+<html>
+<body style=" width:600px; margin:20px auto;">
+<style type="text/css">
+*{padding:0px; margin:0px;}
+ul{clear:both; }
+li{width:48px; height:48px; list-style:none; border:1px solid #000000; float:left;} 
+</style>
+<script type="text/javascript">
+window.onload=function (){
+	var oli=document.getElementsByTagName("li");
+	var Oa=Math.floor(Math.random()*35+1);
+	oli[Oa].style.background="#fe0000";
+	
+
+		arry[i]=Math.floor(Math.random()*35+1);
+
+
+
+};
+
+
+
+</script>
+<ul id="one">
+<li></li> <li></li> <li></li> <li></li> <li></li> <li></li>
+</ul>
+
+<ul>
+<li></li> <li></li> <li></li> <li></li> <li></li> <li></li>
+</ul>
+
+<ul>
+<li></li> <li></li> <li></li> <li></li> <li></li> <li></li>
+</ul>
+
+<ul>
+<li></li> <li></li> <li></li> <li></li> <li></li> <li></li>
+</ul>
+
+<ul>
+<li></li> <li></li> <li></li> <li></li> <li></li> <li></li>
+</ul>
+
+<ul>
+<li></li> <li></li> <li></li> <li></li> <li></li> <li></li>
+</ul>
+
+</body>
+</html>

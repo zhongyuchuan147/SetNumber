@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Ajxa</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"><script type="text/javascript">
+window.onload=function(){
+	var query=null;  //创建一个AJXA 的变量赋空 
+	
+	//按钮点击之后创建一个对象 并执行操作
+	document.getElementsByTagName("button")[0].onclick=function (){
+		var xmlHttp;
+		try{
+			xmlHttp=new XMLHttpRequest();
+		}catch(e){
+			try{
+				xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					xmlHttp=new ActiveXOBject("Microsoft.XMLHTTP");
+				}catch(e){
+					alert("对不起，您的浏览器版本过低，请升级您的浏览器");
+					return false;
+				}
+			}
+		}
+		
+		if(xmlHttp){
+		
+			//打开连接使用open方法 是否异步
+			xmlHttp.open('GET','text.txt',true);	
+			
+			//readyState是判断是否等于4  如果等于四表示连接已完成并弹出从服务器获取的返回数据
+			xmlHttp.onreadystatechange=function (){
+				if(xmlHttp.readyState==4){
+					if(xmlHttp.status==200){
+						if(xmlHttp.responseText==''){
+							document.getElementById("text").innerHTML='无数据';
+						}else{
+							document.getElementById("text").innerHTML=xmlHttp.responseText;
+						}
+					}
+				}
+			}
+			
+			//send方法把异步请求发送到服务器端
+			xmlHttp.send(null);
+		
+		}else{
+			alert("Ajxa对象创建失败");
+		}
+		
+	}
+}	
+</script>
+<button>获取数据</button>
+<input></input>
+<p>数据为:<a id="text">初始化中</a></p>
+</head>
+<body>
+
+</body> 
+</html>

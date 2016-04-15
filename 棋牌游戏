@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Ajxa</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+</head>
+<script type="text/javascript">
+window.onload=function (){
+	
+	var ro=document.getElementById("root");
+	var root=ro.getElementsByTagName("li");
+	var user=document.getElementById("username");
+	var username=user.getElementsByTagName("li");
+	
+	var root_pai={};
+	var user_pai={};
+	
+	document.getElementsByTagName("button")[0].onclick=function (){
+		for(var i=0;i<3;i++){
+			root[i].innerHTML='';
+		}
+		
+		for(var i=0;i<3;i++){
+			username[i].innerHTML='';
+		}
+	}
+	
+	function number(){
+				var i=Math.floor(Math.random()*13)
+				if(i>0&&i<10){
+					return i;
+				}else{
+					if(i==0){
+						return 'A';
+					}else if(i==10){
+						return 'J';
+					}else if(i==11){
+						return 'Q';
+					}else if(i==12){
+						return 'K';
+					}
+				}
+			}
+			
+	function color_pai(){
+		var i=Math.floor(Math.random()*2);
+		if(i==0){
+			return '#fe0000';
+		}else{
+			return '#000000';
+		}
+	}
+	
+	function huase(){
+		var i=Math.floor(Math.random()*4);
+		if(i==0){
+			return '桃花';
+		}else if(i==1){
+			return '方块';
+		}else if(i==2){
+			return '梅花';
+		}else if(i==3){
+			return '桃心';
+		}
+	}
+	
+	
+	for(var i=0;i<root.length;i++){
+		root[i].onclick=function (){
+			this.style.color=color_pai();
+			this.innerHTML=huase()+number();
+		}
+	}
+	
+	for(var i=0;i<username.length;i++){
+		username[i].onclick=function (){
+			this.style.color=color_pai();
+			this.innerHTML=huase()+number();
+		}
+	}
+	
+	document.getElementsByTagName("button")[1].onclick=function (){
+		for(var i=0;i<root.length;i++){
+			root[i].style.color=color_pai();
+			root[i].innerHTML=huase()+number();
+		}
+	
+	}
+
+	document.getElementsByTagName("button")[2].onclick=function (){
+		
+		for(var i=0;i<username.length;i++){
+			username[i].style.color=color_pai();
+			username[i].innerHTML=huase()+number();
+		}
+		
+	
+	}
+	
+}
+</script>
+
+<style type="text/css">
+*{padding:0px; margin:0px; list-style:none;}
+#main{width:800px; height:1000px; margin:15px auto;}
+#main li{width:30%;  text-align:center; line-height:350px; font-size:60px;; height:350px; float:left; border:1px solid #000;margin:5px 5px 5px 0px}
+</style>
+
+</body>
+	
+	<div id="main">
+			
+			<button>洗牌</button>
+			<button>玩家A翻牌</button>
+			<button>玩家B翻牌</button>
+			
+			
+
+			<ul id="root">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+	
+			<ul id="username">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+	
+	
+	</div>
+
+</body>
+</html>

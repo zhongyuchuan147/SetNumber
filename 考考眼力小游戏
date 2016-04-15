@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>考眼力</title>
+<meta http--equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="description" content="方块所有颜色都一样 随机一个方块颜色变色 在两秒之内点击它 加一分 否则不计分 三条命 点错三次重来">
+<meta name="description" content="点击成功十次时间缩短为1.5秒二十次时间缩短为1秒 二十五次缩短为0.5秒">
+</head>
+<script type="text/javascript">
+window.onload=function (){
+	var oli=document.getElementsByTagName("li");
+	var data_number=null;
+	var number=null;
+	var sex=null;
+	var set_num=null;
+	
+	//初始化函数
+	function computer_int(){
+		for(var i=0;i<oli.length;i++){
+			oli[i].style.background="#eee";
+		}
+	}
+	
+	//时间计时器开关
+	function sum(){
+		setInterval(function (){
+			data_number++;
+			document.getElementsByTagName("span")[1].innerHTML=data_number+'秒';
+		},1000);
+	}
+	
+	//随机数方块
+	function set_number(){
+		sex=Math.floor(Math.random()*21)
+		return sex;
+	}	
+	
+	//点击开始事件进行功能激活
+	document.getElementsByTagName("button")[0].onclick=function (){
+		//初始化所有数据并开始启动计时开关
+		computer_int();
+		sum();
+		document.getElementsByTagName("span")[0].innerHTML=0+'分';
+		
+		setInterval(function (){},1000);
+		
+		set_number();
+		oli[sex].style.background='#EEEEFF';
+		
+		oli[sex].onclick=function (){
+			number++;
+			computer_int();//再次初始化数据
+			document.getElementsByTagName("span")[0].innerHTML=number+'分';
+			set_number();
+			oli[sex].style.background='#EEEEFF';
+		}
+	}
+	
+	//结束程序并刷新
+	document.getElementsByTagName("button")[3].onclick=function (){
+		location.reload() 
+	}
+
+}
+</script>
+
+<style type="text/css">
+*{padding:0px; margin:0px; list-style:none;}
+button{height:40px; padding:2px; font-size:16px;}
+#main{width:800px; height:1000px; margin:15px auto;}
+#main li{width:150px; height:150px; float:left; border:1px solid #000;margin:5px 5px 5px 0px}
+</style>
+
+</body>
+	
+	<div id="main">
+			
+			<button>开始</button>
+			<button>分数为：<span>初始化中</span></button>
+			<button>游戏时间：<span>初始化中</span></button>
+			<button>停止</button>
+			
+			
+
+			<ul id="root">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+	
+	
+	</div>
+
+</body>
+</html>
